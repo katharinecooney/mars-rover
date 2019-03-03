@@ -53,3 +53,19 @@ function turnRight(roverName){
   }
 }
 
+function moveForward(roverName){
+  console.log("moveForward was called")
+  if (rover.direction === "N") {
+    rover.y += 1;
+    console.log("Your current position is: " + rover.x + ", " + rover.y);
+  } else if (rover.direction === "S") {
+    rover.y -= 1;
+    console.log("Your current position is: " + rover.x + ", " + rover.y);
+  } else if (rover.direction === "E") {
+    rover.x += 1;
+    console.log("Your current position is: " + rover.x + ", " + rover.y);
+  } else if (rover.direction === "W") {
+    rover.y -= 1;
+    console.log("Your current position is: " + rover.x + ", " + rover.y);
+  }
+}
