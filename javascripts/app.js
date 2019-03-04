@@ -1,5 +1,5 @@
 // Rover Object Goes Here
-var rover = {direction: "N", x: 0, y: 0};
+var rover = {direction: "N", x: 0, y: 0, travelLog: []}
 // ======================
 
 
@@ -45,30 +45,33 @@ function turnRight(roverName){
 
 function moveForward(roverName){
   if (rover.direction === "N") {
-    rover.y += 1;
+    rover.y++;
   } else if (rover.direction === "S") {
-    rover.y -= 1;
+    rover.y--;
   } else if (rover.direction === "E") {
-    rover.x += 1;
+    rover.x++;
   } else if (rover.direction === "W") {
-    rover.y -= 1;
+    rover.y--;
   }
 }
 
+
 function obeyCommand(){
-  var userCommand = prompt("Enter your command!");
-  for(var i = 0; i < userCommand.length; i++){
-    if(userCommand[i] === "r") {
-      turnRight();
-    } else if (userCommand[i] === "l") {
-      turnLeft();
-    } else if (userCommand[i] === "f") {
-      moveForward();
-    } else {
-      console.log("I can't do that!");
+  var userCommand = prompt("Enter your commands! Turn right: r, Turn left: l, Move forward: f, Quit: quit"); 
+  while (userCommand !== 'quit') {
+    for (var i = 0; i < userCommand.length; i++){
+      if (userCommand[i] === 'r') {
+        turnRight();
+      } else if (userCommand[i] === 'l') {
+        turnLeft();
+      } else if (userCommand[i] === 'f') {
+        moveForward();
+      } 
+      console.log("The rover is located at " + rover.x + ", " + rover.y);
+      rover.travelLog.push(rover.x + ", " + rover.y);
     }
+    var userCommand = prompt("what is the command?"); 
   }
-  console.log("The rover is located at " + rover.x + ", " + rover.y);
 }
 
 obeyCommand();
