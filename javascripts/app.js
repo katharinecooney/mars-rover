@@ -51,7 +51,7 @@ function moveForward(roverName){
   } else if (rover.direction === "E") {
     rover.x++;
   } else if (rover.direction === "W") {
-    rover.y--;
+    rover.x--;
   }
 }
 
@@ -65,6 +65,7 @@ function obeyCommand(){
       } else if (userCommand[i] === 'l') {
         turnLeft();
       } else if (userCommand[i] === 'f') {
+
         moveForward();
       } 
       console.log("The rover is located at " + rover.x + ", " + rover.y);
